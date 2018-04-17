@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "Chromecast receiver app for SikhiToTheMax",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "run-p -cls build:*",
+    "build:css": "node-sass --output-style compressed --include-path src/scss src/scss/index.scss sttm.css",
+    "postinstall": "npm run build",
+    "test": "run-p -cs test:*",
+    "test:lint": "run-p -cls test:lint:*",
+    "test:lint:css": "stylelint \"src/scss/*.scss\" --syntax scss",
+    "test:lint:html": "htmlhint"
   },
   "repository": {
     "type": "git",
@@ -17,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/khalisfoundation/sttm-chromecast/issues"
   },
-  "homepage": "https://github.com/khalisfoundation/sttm-chromecast#readme"
+  "homepage": "https://github.com/khalisfoundation/sttm-chromecast#readme",
+  "devDependencies": {
+    "htmlhint": "^0.9.13",
+    "node-sass": "^4.8.3",
+    "npm-run-all": "^4.1.2",
+    "stylelint": "^9.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^0.8.1"
+  }
 }

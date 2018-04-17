@@ -1,0 +1,45 @@
+.display-next-line:not(.akhandpaatt) {
+  .deck {
+    height: calc(100% - #{$viewer-padding} * 1);
+  }
+
+  .translation {
+    animation: backlight 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .teeka {
+    animation: backlight 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .transliteration {
+    animation: backlight 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .slide {
+    display: none;
+    height: initial;
+    min-height: calc(100% - 3.25em);
+    opacity: 1;
+    position: initial;
+    width: initial;
+
+    &.active {
+      display: block;
+
+      & + .slide {
+        display: block;
+        padding-top: 0.25em;
+
+        .gurbani {
+          animation: blank 0.2s, backlight 1s 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .translation,
+        .transliteration,
+        .teeka {
+          display: none;
+        }
+      }
+    }
+  }
+}
