@@ -1,0 +1,21 @@
+{
+  "name": "sttm-chromecast",
+  "version": "1.0.0",
+  "description": "Chromecast receiver app for SikhiToTheMax",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khalisfoundation/sttm-chromecast.git"
+  },
+  "keywords": [
+    "sikhitothemax"
+  ],
+  "author": "Khalis Foundation <techsupport@khalisfoundation.org>",
+  "license": "KNC-GSL",
+  "bugs": {
+    "url": "https://github.com/khalisfoundation/sttm-chromecast/issues"
+  },
+  "homepage": "https://github.com/khalisfoundation/sttm-chromecast#readme"
+}
