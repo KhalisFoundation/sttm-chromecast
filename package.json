@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "Chromecast receiver app for SikhiToTheMax",
   "scripts": {
-    "build": "run-p -cls build:*",
-    "build:css": "node-sass --output-style compressed --include-path src/scss src/scss/index.scss sttm.css",
+    "build": "rm -rf dist && webpack",
     "postinstall": "npm run build",
     "test": "run-p -cs test:*",
     "test:lint": "run-p -cls test:lint:*",
     "test:lint:css": "stylelint \"src/scss/*.scss\" --syntax scss",
-    "test:lint:html": "htmlhint"
+    "test:lint:html": "htmlhint src",
+    "test:lint:js": "eslint src/js"
   },
   "repository": {
     "type": "git",
@@ -25,11 +25,21 @@
   },
   "homepage": "https://github.com/khalisfoundation/sttm-chromecast#readme",
   "devDependencies": {
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
     "htmlhint": "^0.9.13",
     "node-sass": "^4.8.3",
     "npm-run-all": "^4.1.2",
+    "sass-loader": "^7.0.1",
     "stylelint": "^9.2.0",
     "stylelint-config-standard": "^18.2.0",
-    "stylelint-order": "^0.8.1"
+    "stylelint-order": "^0.8.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
   }
 }
