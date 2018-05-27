@@ -1,0 +1,25 @@
+body.khalsa-gold {
+  background-color: #ffda39;
+  background-image: url('images/golden.png');
+
+  .gurbani {
+    color: #fff;
+    text-shadow: 0 0 4px rgba(140, 81, 5, 1);
+  }
+
+  .translation {
+    color: #4d2b00;
+  }
+
+  .teeka {
+    color: #723c03;
+  }
+
+  .transliteration {
+    color: #4d2b00;
+  }
+
+  .logo path {
+    fill: #e0e0e0;
+  }
+}

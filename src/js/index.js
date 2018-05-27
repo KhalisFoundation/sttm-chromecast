@@ -58,11 +58,11 @@ function displayText(json) {
   document.body.classList.add(`${prefs.app.theme}`);
 
   if (!gurbani.showInEnglish) {
-    document.getElementById('gurmukhi').classList.add('gurmukhi');
-    document.getElementById('larivaar').classList.add('gurmukhi');
+    document.getElementById('gurmukhi').classList.add('gurmukhi', 'gurbani');
+    document.getElementById('larivaar').classList.add('gurmukhi', 'gurbani');
   } else {
-    document.getElementById('gurmukhi').classList.remove('gurmukhi');
-    document.getElementById('larivaar').classList.remove('gurmukhi');
+    document.getElementById('gurmukhi').classList.remove('gurmukhi', 'gurbani');
+    document.getElementById('larivaar').classList.remove('gurmukhi', 'gurbani');
   }
 
   if (prefs['slide-layout'].fields['display-translation'] === true) document.body.classList.add('display-translation');
