@@ -1,5 +1,25 @@
 $viewer-padding: 30px;
 
+.ribbon {
+  background-image: url("images/embellishes/floral.png");
+  height: 100px;
+  position: fixed;
+  visibility: hidden;
+  width: 100px;
+}
+
+#ribbon1 {
+  left: 25px;
+  top: 25px;
+  transform: rotate(90deg);
+}
+
+#ribbon2 {
+  bottom: 25px;
+  right: 25px;
+  transform: rotate(270deg);
+}
+
 @import
   "display-next-line",
   "fonts",
@@ -10,7 +30,11 @@ $viewer-padding: 30px;
   "baagi-blue",
   "black-blue",
   "moody-blue",
-  "a-new-day";
+  "a-new-day",
+  "floral",
+  "blue-darbar",
+  "high-contrast",
+  "low-light";
 
 /* Custom Styles */
 html {
@@ -185,7 +209,7 @@ h2 {
   bottom: 20px;
   display: block;
   height: 5.5%;
-  left: 50%;
+  left: 10%;
   position: fixed;
   top: auto;
   transform: translateX(-50%);
