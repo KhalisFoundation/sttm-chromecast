@@ -53,6 +53,7 @@ function displayText(json) {
   console.log(json);
   const gurbani = JSON.parse(json);
   const { prefs } = gurbani;
+  const showNextLine = prefs['slide-layout'].fields['display-next-line'] === true;
 
   clearClasses();
   document.body.classList.add(`${prefs.app.theme}`);
@@ -68,8 +69,8 @@ function displayText(json) {
   if (prefs['slide-layout'].fields['display-translation'] === true) document.body.classList.add('display-translation');
   if (prefs['slide-layout'].fields['display-teeka'] === true) document.body.classList.add('display-teeka');
   if (prefs['slide-layout'].fields['display-transliteration'] === true) document.body.classList.add('display-transliteration');
-  if (prefs['slide-layout'].fields['display-next-line'] === true) document.body.classList.add('display-next-line');
 
+  document.body.classList.add('display-next-line');
   document.body.classList.add(`gurbani-${prefs['slide-layout']['font-sizes'].gurbani}`);
   document.body.classList.add(`translation-${prefs['slide-layout']['font-sizes'].translation}`);
   document.body.classList.add(`teeka-${prefs['slide-layout']['font-sizes'].teeka}`);
@@ -91,7 +92,7 @@ function displayText(json) {
   document.getElementById('translation').innerText = gurbani.translation ? gurbani.translation : '';
   document.getElementById('teeka').innerText = gurbani.teeka ? gurbani.teeka : '';
   document.getElementById('transliteration').innerText = gurbani.transliteration ? gurbani.transliteration : '';
-  document.getElementById('next-line').innerText = gurbani.nextLine ? gurbani.nextLine : '';
+  document.getElementById('next-line').innerText = gurbani.nextLine && showNextLine ? gurbani.nextLine : '';
 
   window.castReceiverManager.setApplicationState(json);
 }
