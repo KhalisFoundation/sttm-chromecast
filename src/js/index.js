@@ -44,7 +44,7 @@ window.onload = () => {
   };
 
   // initialize the CastReceiverManager with an application status message
-  window.castReceiverManager.start({ statusText: 'Application is starting' });
+  window.castReceiverManager.start({statusText: 'Application is starting'});
   console.log('Receiver Manager started');
 };
 
@@ -52,25 +52,34 @@ window.onload = () => {
 function displayText(json) {
   console.log(json);
   const gurbani = JSON.parse(json);
-  const { prefs } = gurbani;
+  const {prefs} = gurbani;
   const showNextLine = prefs['slide-layout'].fields['display-next-line'] === true;
+  const showTeeka = prefs['slide-layout'].fields['display-teeka'] === true;
+  const showTranslation = prefs['slide-layout'].fields['display-translation'] === true;
+  const showtransliteration = prefs['slide-layout'].fields['display-transliteration'] === true;
+  const gurmukhiElement = document.getElementById('gurmukhi');
+  const larivaarElement = document.getElementById('larivaar');
+  const translationElement = document.getElementById('translation');
+  const teekaElement = document.getElementById('teeka');
+  const transliterationElement = document.getElementById('transliteration');
+  const nextLineElement = document.getElementById('next-line');
 
   clearClasses();
   document.body.classList.add(`${prefs.app.theme}`);
 
   if (!gurbani.showInEnglish) {
-    document.getElementById('gurmukhi').classList.add('gurmukhi', 'gurbani');
-    document.getElementById('larivaar').classList.add('gurmukhi', 'gurbani');
+    gurmukhiElement.classList.add('gurmukhi', 'gurbani');
+    larivaarElement.classList.add('gurmukhi', 'gurbani');
   } else {
-    document.getElementById('gurmukhi').classList.remove('gurmukhi', 'gurbani');
-    document.getElementById('larivaar').classList.remove('gurmukhi', 'gurbani');
+    gurmukhiElement.classList.remove('gurmukhi', 'gurbani');
+    larivaarElement.classList.remove('gurmukhi', 'gurbani');
   }
 
-  if (prefs['slide-layout'].fields['display-translation'] === true) document.body.classList.add('display-translation');
-  if (prefs['slide-layout'].fields['display-teeka'] === true) document.body.classList.add('display-teeka');
-  if (prefs['slide-layout'].fields['display-transliteration'] === true) document.body.classList.add('display-transliteration');
+  if (showTranslation) document.body.classList.add('display-translation');
+  if (showTeeka) document.body.classList.add('display-teeka');
+  if (showtransliteration) document.body.classList.add('display-transliteration');
+  if (showNextLine) document.body.classList.add('display-next-line');
 
-  document.body.classList.add('display-next-line');
   document.body.classList.add(`gurbani-${prefs['slide-layout']['font-sizes'].gurbani}`);
   document.body.classList.add(`translation-${prefs['slide-layout']['font-sizes'].translation}`);
   document.body.classList.add(`teeka-${prefs['slide-layout']['font-sizes'].teeka}`);
@@ -79,20 +88,21 @@ function displayText(json) {
 
   if (prefs['slide-layout']['display-options'].larivaar === true) {
     document.body.classList.add('larivaar');
-    document.getElementById('gurmukhi').style.display = 'none';
-    document.getElementById('larivaar').style.display = 'block';
+    gurmukhiElement.style.display = 'none';
+    larivaarElement.style.display = 'block';
   } else {
-    document.getElementById('gurmukhi').style.display = 'block';
-    document.getElementById('larivaar').style.display = 'none';
+    gurmukhiElement.style.display = 'block';
+    larivaarElement.style.display = 'none';
   }
   if (prefs['slide-layout']['display-options']['left-align'] === true) document.body.classList.add('left-align');
 
-  document.getElementById('gurmukhi').innerText = gurbani.gurmukhi ? gurbani.gurmukhi : '';
-  document.getElementById('larivaar').innerHTML = gurbani.larivaar ? `<span class="larivaar">${gurbani.larivaar}</span>` : '';
-  document.getElementById('translation').innerText = gurbani.translation ? gurbani.translation : '';
-  document.getElementById('teeka').innerText = gurbani.teeka ? gurbani.teeka : '';
-  document.getElementById('transliteration').innerText = gurbani.transliteration ? gurbani.transliteration : '';
-  document.getElementById('next-line').innerText = gurbani.nextLine && showNextLine ? gurbani.nextLine : '';
+  gurmukhiElement.innerText = gurbani.gurmukhi ? gurbani.gurmukhi : '';
+  larivaarElement.innerHTML = gurbani.larivaar ? `<span class="larivaar">${gurbani.larivaar}</span>` : '';
+
+  translationElement.innerText = gurbani.translation && showTranslation ? gurbani.translation : '';
+  teekaElement.innerText = gurbani.teeka && showTeeka ? gurbani.teeka : '';
+  transliterationElement.innerText = gurbani.transliteration && showtransliteration ? gurbani.transliteration : '';
+  nextLineElement.innerText = gurbani.nextLine && showNextLine ? gurbani.nextLine : '';
 
   window.castReceiverManager.setApplicationState(json);
 }
