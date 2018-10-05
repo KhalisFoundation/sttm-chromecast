@@ -207,15 +207,17 @@ h2 {
 }
 
 .logo {
-  bottom: 20px;
-  display: block;
-  height: 5.5%;
-  left: 10%;
+  left: 12px;
   position: fixed;
-  top: auto;
-  transform: translateX(-50%);
 
   path {
     fill: #c8c8c8;
   }
+}
+
+#viewer-logo {
+  bottom: 20px;
+  display: block;
+  height: 3.5%;
+  top: auto;
 }
