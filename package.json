@@ -19,7 +19,7 @@
     "sikhitothemax"
   ],
   "author": "Khalis Foundation <techsupport@khalisfoundation.org>",
-  "license": "KNC-GSL",
+  "license": "OSL-3.0",
   "bugs": {
     "url": "https://github.com/khalisfoundation/sttm-chromecast/issues"
   },
