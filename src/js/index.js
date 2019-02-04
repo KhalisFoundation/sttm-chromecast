@@ -96,7 +96,7 @@ function displayText(json) {
   }
   if (prefs['slide-layout']['display-options']['left-align'] === true) document.body.classList.add('left-align');
 
-  gurmukhiElement.innerText = gurbani.gurmukhi ? gurbani.gurmukhi : '';
+  gurmukhiElement.innerHTML = gurbani.gurmukhi ? gurbani.gurmukhi : '';
   larivaarElement.innerHTML = gurbani.larivaar ? `<span class="larivaar">${gurbani.larivaar}</span>` : '';
 
   translationElement.innerText = gurbani.translation && showTranslation ? gurbani.translation : '';
