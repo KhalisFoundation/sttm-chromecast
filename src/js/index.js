@@ -99,10 +99,10 @@ function displayText(json) {
   gurmukhiElement.innerHTML = gurbani.gurmukhi ? gurbani.gurmukhi : '';
   larivaarElement.innerHTML = gurbani.larivaar ? `<span class="larivaar">${gurbani.larivaar}</span>` : '';
 
-  translationElement.innerText = gurbani.translation && showTranslation ? gurbani.translation : '';
-  teekaElement.innerText = gurbani.teeka && showTeeka ? gurbani.teeka : '';
-  transliterationElement.innerText = gurbani.transliteration && showtransliteration ? gurbani.transliteration : '';
-  nextLineElement.innerText = gurbani.nextLine && showNextLine ? gurbani.nextLine : '';
+  translationElement.innerHTML = gurbani.translation && showTranslation ? gurbani.translation : '';
+  teekaElement.innerHTML = gurbani.teeka && showTeeka ? gurbani.teeka : '';
+  transliterationElement.innerHTML = gurbani.transliteration && showtransliteration ? gurbani.transliteration : '';
+  nextLineElement.innerHTML = gurbani.nextLine && showNextLine ? gurbani.nextLine : '';
 
   window.castReceiverManager.setApplicationState(json);
 }
