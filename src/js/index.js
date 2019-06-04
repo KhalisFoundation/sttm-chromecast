@@ -52,11 +52,12 @@ window.onload = () => {
 function displayText(json) {
   console.log(json);
   const gurbani = JSON.parse(json);
-  const {prefs} = gurbani;
+  const { prefs } = gurbani;
   const showNextLine = prefs['slide-layout'].fields['display-next-line'] === true;
   const showTeeka = prefs['slide-layout'].fields['display-teeka'] === true;
   const showTranslation = prefs['slide-layout'].fields['display-translation'] === true;
   const showtransliteration = prefs['slide-layout'].fields['display-transliteration'] === true;
+  const showVishraams = prefs['toolbar']['gurbani-options']['display-visraams'] === true;
   const gurmukhiElement = document.getElementById('gurmukhi');
   const larivaarElement = document.getElementById('larivaar');
   const translationElement = document.getElementById('translation');
@@ -79,6 +80,11 @@ function displayText(json) {
   if (showTeeka) document.body.classList.add('display-teeka');
   if (showtransliteration) document.body.classList.add('display-transliteration');
   if (showNextLine) document.body.classList.add('display-next-line');
+  if (showVishraams) {
+    document.body.classList.add('display-visraams');
+    document.body.classList.add(`vishraam-vishraam-options-${prefs['toolbar']['vishraam']['vishraam-options']}`);
+    document.body.classList.add(`vishraam-vishraam-source-${prefs['toolbar']['vishraam']['vishraam-source']}`);
+  }
 
   document.body.classList.add(`gurbani-${prefs['slide-layout']['font-sizes'].gurbani}`);
   document.body.classList.add(`translation-${prefs['slide-layout']['font-sizes'].translation}`);
