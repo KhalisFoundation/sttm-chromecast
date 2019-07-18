@@ -24,7 +24,7 @@
     width: initial;
 
     &.active {
-      display: block;
+      display: flex;
 
       & + .slide {
         display: block;
