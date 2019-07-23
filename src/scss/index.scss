@@ -122,12 +122,20 @@ body {
 
 .slide {
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
   height: 100%;
   justify-content: space-between;
   opacity: 0;
   position: absolute;
   width: 100%;
+
+  &.announcement-slide {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }
 
   &.active {
     opacity: 1;
@@ -170,13 +178,6 @@ h2 {
   margin-top: 0.25em;
 }
 
-.next-line {
-  bottom: 8%;
-  left: 0;
-  position: absolute;
-  right: 0;
-}
-
 .translation,
 .transliteration,
 .teeka,
@@ -194,6 +195,10 @@ h2 {
   display: block;
   height: auto;
   opacity: 1;
+}
+
+.display-next-line .next-line {
+  opacity: 0.5;
 }
 
 /* ***** FONT SIZES ***** */

@@ -64,6 +64,7 @@ function displayText(json) {
   const teekaElement = document.getElementById('teeka');
   const transliterationElement = document.getElementById('transliteration');
   const nextLineElement = document.getElementById('next-line');
+  const slide = document.querySelector('.slide');
 
   clearClasses();
   document.body.classList.add(`${prefs.app.theme}`);
@@ -104,6 +105,10 @@ function displayText(json) {
 
   gurmukhiElement.innerHTML = gurbani.gurmukhi ? gurbani.gurmukhi : '';
   larivaarElement.innerHTML = gurbani.larivaar ? `<span class="larivaar">${gurbani.larivaar}</span>` : '';
+
+  if(gurbani.isText) {
+    slide.classList.add('announcement-slide');
+  }
 
   translationElement.innerHTML = gurbani.translation && showTranslation ? gurbani.translation : '';
   teekaElement.innerHTML = gurbani.teeka && showTeeka ? gurbani.teeka : '';
