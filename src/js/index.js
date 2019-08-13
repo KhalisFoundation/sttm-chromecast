@@ -106,8 +106,10 @@ function displayText(json) {
   gurmukhiElement.innerHTML = gurbani.gurmukhi ? gurbani.gurmukhi : '';
   larivaarElement.innerHTML = gurbani.larivaar ? `<span class="larivaar">${gurbani.larivaar}</span>` : '';
 
-  if(gurbani.isText) {
+  if (gurbani.isText) {
     slide.classList.add('announcement-slide');
+  } else {
+    slide.classList.remove('announcement-slide');
   }
 
   translationElement.innerHTML = gurbani.translation && showTranslation ? gurbani.translation : '';
