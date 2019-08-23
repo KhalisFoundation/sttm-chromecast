@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Chromecast receiver app for SikhiToTheMax",
   "scripts": {
-    "build": "rm -rf dist && webpack",
-    "postinstall": "npm run build",
+    "build": "webpack",
     "test": "run-p -cs test:*",
     "test:lint": "run-p -cls test:lint:*",
     "test:lint:css": "stylelint \"src/scss/*.scss\" --syntax scss",
@@ -28,6 +27,7 @@
     "css-loader": "^2.1.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.18.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
