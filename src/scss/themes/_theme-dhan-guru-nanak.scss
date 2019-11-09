@@ -1,0 +1,14 @@
+$themeDhanGuruNanak: (
+  type: 'dark',
+  background-color: #000,
+  gurbani: #fcfefe,
+  translation: #fde5ab,
+  teeka: #86a3ba,
+  transliteration: #f1f5f4,
+  visraam: #ffa5a5,
+  yamki: #ffde00,
+);
+
+body.dhan-guru-nanak {
+  @include generateTheme($themeDhanGuruNanak...);
+}
