@@ -114,9 +114,9 @@ function displayText(json) {
     slide.classList.remove('announcement-slide');
   }
 
-  translationElement.innerHTML = gurbani.translation && showTranslation ? gurbani.translation[translationLanguage] : '';
+  translationElement.innerHTML = (gurbani.translation && showTranslation) ? (gurbani.translation[translationLanguage] || gurbani.translation) : '';
   teekaElement.innerHTML = gurbani.teeka && showTeeka ? gurbani.teeka : '';
-  transliterationElement.innerHTML = gurbani.transliteration && showtransliteration ? gurbani.transliteration[transliterationLanguage] : '';
+  transliterationElement.innerHTML = (gurbani.transliteration && showtransliteration) ? (gurbani.transliteration[transliterationLanguage] || gurbani.transliteration) : '';
   nextLineElement.innerHTML = gurbani.nextLine && showNextLine ? gurbani.nextLine : '';
 
   window.castReceiverManager.setApplicationState(json);
