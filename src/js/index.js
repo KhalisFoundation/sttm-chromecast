@@ -114,20 +114,8 @@ function displayText(json) {
     slide.classList.remove('announcement-slide');
   }
 
-  let translationText;
-  if (typeof gurbani.translation === "string") {
-    translationText = gurbani.translation;
-  } else {
-    translationText = gurbani.translation[translationLanguage];
-  }
-
-
-  let transliterationText;
-  if (typeof gurbani.transliteration === "string") {
-    transliterationText = gurbani.transliteration;
-  } else {
-    transliterationText = gurbani.transliteration[transliterationLanguage];
-  }
+  const translationText = (typeof gurbani.translation === "string") ? gurbani.translation : gurbani.translation[translationLanguage];
+  const transliterationText = (typeof gurbani.transliteration === "string") ? gurbani.transliteration : gurbani.transliteration[transliterationLanguage];
 
   translationElement.innerHTML = (gurbani.translation && showTranslation) ? translationText : '';
   teekaElement.innerHTML = gurbani.teeka && showTeeka ? gurbani.teeka : '';
