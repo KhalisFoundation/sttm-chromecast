@@ -114,9 +114,24 @@ function displayText(json) {
     slide.classList.remove('announcement-slide');
   }
 
-  translationElement.innerHTML = (gurbani.translation && showTranslation) ? (gurbani.translation[translationLanguage] || gurbani.translation) : '';
+  let translationText;
+  if (typeof gurbani.translation === "string") {
+    translationText = gurbani.translation;
+  } else {
+    translationText = gurbani.translation[translationLanguage];
+  }
+
+
+  let transliterationText;
+  if (typeof gurbani.transliteration === "string") {
+    transliterationText = gurbani.transliteration;
+  } else {
+    transliterationText = gurbani.transliteration[transliterationLanguage];
+  }
+
+  translationElement.innerHTML = (gurbani.translation && showTranslation) ? translationText : '';
   teekaElement.innerHTML = gurbani.teeka && showTeeka ? gurbani.teeka : '';
-  transliterationElement.innerHTML = (gurbani.transliteration && showtransliteration) ? (gurbani.transliteration[transliterationLanguage] || gurbani.transliteration) : '';
+  transliterationElement.innerHTML = (gurbani.transliteration && showtransliteration) ? transliterationText : '';
   nextLineElement.innerHTML = gurbani.nextLine && showNextLine ? gurbani.nextLine : '';
 
   window.castReceiverManager.setApplicationState(json);
