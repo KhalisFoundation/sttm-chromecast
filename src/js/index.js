@@ -56,9 +56,9 @@ function displayText(json) {
   const showNextLine = prefs['slide-layout'].fields['display-next-line'] === true;
   const showTeeka = prefs['slide-layout'].fields['display-teeka'] === true;
   const showTranslation = prefs['slide-layout'].fields['display-translation'] === true;
-  const translationLanguage = prefs.toolbar.gurbani['translation-language'];
+  const translationLanguage = prefs.toolbar['language-settings']['translation-language'];
   const showtransliteration = prefs['slide-layout'].fields['display-transliteration'] === true;
-  const transliterationLanguage = prefs.toolbar.gurbani['transliteration-language'];
+  const transliterationLanguage = prefs.toolbar['language-settings']['transliteration-language'];
   const showVishraams = prefs.toolbar['gurbani-options']['display-visraams'] === true;
   const gurmukhiElement = document.getElementById('gurmukhi');
   const larivaarElement = document.getElementById('larivaar');
