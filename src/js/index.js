@@ -56,7 +56,9 @@ function displayText(json) {
   const showNextLine = prefs['slide-layout'].fields['display-next-line'] === true;
   const showTeeka = prefs['slide-layout'].fields['display-teeka'] === true;
   const showTranslation = prefs['slide-layout'].fields['display-translation'] === true;
+  const translationLanguage = prefs.toolbar['language-settings']['translation-language'];
   const showtransliteration = prefs['slide-layout'].fields['display-transliteration'] === true;
+  const transliterationLanguage = prefs.toolbar['language-settings']['transliteration-language'];
   const showVishraams = prefs.toolbar['gurbani-options']['display-visraams'] === true;
   const gurmukhiElement = document.getElementById('gurmukhi');
   const larivaarElement = document.getElementById('larivaar');
@@ -112,9 +114,12 @@ function displayText(json) {
     slide.classList.remove('announcement-slide');
   }
 
-  translationElement.innerHTML = gurbani.translation && showTranslation ? gurbani.translation : '';
+  const translationText = (typeof gurbani.translation === "string") ? gurbani.translation : gurbani.translation[translationLanguage];
+  const transliterationText = (typeof gurbani.transliteration === "string") ? gurbani.transliteration : gurbani.transliteration[transliterationLanguage];
+
+  translationElement.innerHTML = (gurbani.translation && showTranslation) ? translationText : '';
   teekaElement.innerHTML = gurbani.teeka && showTeeka ? gurbani.teeka : '';
-  transliterationElement.innerHTML = gurbani.transliteration && showtransliteration ? gurbani.transliteration : '';
+  transliterationElement.innerHTML = (gurbani.transliteration && showtransliteration) ? transliterationText : '';
   nextLineElement.innerHTML = gurbani.nextLine && showNextLine ? gurbani.nextLine : '';
 
   window.castReceiverManager.setApplicationState(json);
