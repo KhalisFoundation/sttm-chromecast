@@ -136,6 +136,13 @@ body {
     display: flex;
     height: 100vh;
     justify-content: center;
+
+    #translation,
+    #transliteration,
+    #teeka,
+    #next-line {
+      display: none;
+    }
   }
 
   &.active {
