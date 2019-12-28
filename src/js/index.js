@@ -56,10 +56,18 @@ function displayText(json) {
   const showNextLine = prefs['slide-layout'].fields['display-next-line'] === true;
   const showTeeka = prefs['slide-layout'].fields['display-teeka'] === true;
   const showTranslation = prefs['slide-layout'].fields['display-translation'] === true;
-  const translationLanguage = prefs.toolbar['language-settings']['translation-language'];
+  // For backwards compatibility
+  const translationLanguage =
+    // eslint-disable-next-line no-nested-ternary
+    prefs.toolbar && prefs.toolbar['language-settings'] ? prefs.toolbar['language-settings']['translation-language'] :
+      prefs['slide-layout'] && prefs['slide-layout']['language-settings'] ? prefs['slide-layout']['language-settings']['translation-language'] : 'English';
   const showtransliteration = prefs['slide-layout'].fields['display-transliteration'] === true;
-  const transliterationLanguage = prefs.toolbar['language-settings']['transliteration-language'];
-  const showVishraams = prefs.toolbar['gurbani-options']['display-visraams'] === true;
+  // For backwards compatibility
+  const transliterationLanguage =
+    // eslint-disable-next-line no-nested-ternary
+    prefs.toolbar && prefs.toolbar['language-settings'] ? prefs.toolbar['language-settings']['transliteration-language'] :
+      prefs['slide-layout'] && prefs['slide-layout']['language-settings'] ? prefs['slide-layout']['language-settings']['transliteration-language'] : 'English';
+  const showVishraams = prefs.toolbar && prefs.toolbar['gurbani-options'] ? prefs.toolbar['gurbani-options']['display-visraams'] === true : false;
   const gurmukhiElement = document.getElementById('gurmukhi');
   const larivaarElement = document.getElementById('larivaar');
   const translationElement = document.getElementById('translation');
@@ -114,8 +122,8 @@ function displayText(json) {
     slide.classList.remove('announcement-slide');
   }
 
-  const translationText = (typeof gurbani.translation === "string") ? gurbani.translation : gurbani.translation[translationLanguage];
-  const transliterationText = (typeof gurbani.transliteration === "string") ? gurbani.transliteration : gurbani.transliteration[transliterationLanguage];
+  const translationText = (gurbani && typeof gurbani.translation === 'string') ? gurbani.translation : gurbani.translation[translationLanguage];
+  const transliterationText = (gurbani && typeof gurbani.transliteration === 'string') ? gurbani.transliteration : gurbani.transliteration[transliterationLanguage];
 
   translationElement.innerHTML = (gurbani.translation && showTranslation) ? translationText : '';
   teekaElement.innerHTML = gurbani.teeka && showTeeka ? gurbani.teeka : '';
