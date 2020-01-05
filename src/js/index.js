@@ -56,17 +56,9 @@ function displayText(json) {
   const showNextLine = prefs['slide-layout'].fields['display-next-line'] === true;
   const showTeeka = prefs['slide-layout'].fields['display-teeka'] === true;
   const showTranslation = prefs['slide-layout'].fields['display-translation'] === true;
-  // For backwards compatibility
-  const translationLanguage =
-    // eslint-disable-next-line no-nested-ternary
-    prefs.toolbar && prefs.toolbar['language-settings'] ? prefs.toolbar['language-settings']['translation-language'] :
-      prefs['slide-layout'] && prefs['slide-layout']['language-settings'] ? prefs['slide-layout']['language-settings']['translation-language'] : 'English';
+  let translationLang = 'English';
   const showtransliteration = prefs['slide-layout'].fields['display-transliteration'] === true;
-  // For backwards compatibility
-  const transliterationLanguage =
-    // eslint-disable-next-line no-nested-ternary
-    prefs.toolbar && prefs.toolbar['language-settings'] ? prefs.toolbar['language-settings']['transliteration-language'] :
-      prefs['slide-layout'] && prefs['slide-layout']['language-settings'] ? prefs['slide-layout']['language-settings']['transliteration-language'] : 'English';
+  let transliterationLang = 'English';
   const showVishraams = prefs.toolbar && prefs.toolbar['gurbani-options'] ? prefs.toolbar['gurbani-options']['display-visraams'] === true : false;
   const gurmukhiElement = document.getElementById('gurmukhi');
   const larivaarElement = document.getElementById('larivaar');
@@ -75,6 +67,19 @@ function displayText(json) {
   const transliterationElement = document.getElementById('transliteration');
   const nextLineElement = document.getElementById('next-line');
   const slide = document.querySelector('.slide');
+
+  // For backwards compatibility
+  if (prefs.toolbar && prefs.toolbar['language-settings']) {
+    // we are on a version that uses toolbar as place for language settings
+    translationLang = prefs.toolbar['language-settings']['translation-language'];
+    transliterationLang = prefs.toolbar['language-settings']['transliteration-language'];
+  }
+
+  if (prefs['slide-layout'] && prefs['slide-layout']['language-settings']) {
+     // we are on a version that uses slide-layout as place for language settings
+    translationLang = prefs['slide-layout']['language-settings']['translation-language'];
+    transliterationLang = prefs['slide-layout']['language-settings']['transliteration-language'];
+  }
 
   clearClasses();
   document.body.classList.add(`${prefs.app.theme}`);
@@ -122,13 +127,15 @@ function displayText(json) {
     slide.classList.remove('announcement-slide');
   }
 
-  const translationText = (gurbani && typeof gurbani.translation === 'string') ? gurbani.translation : gurbani.translation[translationLanguage];
-  const transliterationText = (gurbani && typeof gurbani.transliteration === 'string') ? gurbani.transliteration : gurbani.transliteration[transliterationLanguage];
+  const translationText = (gurbani && typeof gurbani.translation === 'string') ? gurbani.translation : gurbani.translation[translationLang];
+  const transliterationText = (gurbani && typeof gurbani.transliteration === 'string') ? gurbani.transliteration : gurbani.transliteration[transliterationLang];
 
   translationElement.innerHTML = (gurbani.translation && showTranslation) ? translationText : '';
   teekaElement.innerHTML = gurbani.teeka && showTeeka ? gurbani.teeka : '';
   transliterationElement.innerHTML = (gurbani.transliteration && showtransliteration) ? transliterationText : '';
   nextLineElement.innerHTML = gurbani.nextLine && showNextLine ? gurbani.nextLine : '';
+
+  document.querySelector('.debug-info').innerHTML = `${json} ::::::::::::::::::::: <h1> ${translationLang} ${transliterationLang}</h1> `;
 
   window.castReceiverManager.setApplicationState(json);
 }
