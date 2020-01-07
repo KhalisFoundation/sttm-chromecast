@@ -135,7 +135,8 @@ function displayText(json) {
   transliterationElement.innerHTML = (gurbani.transliteration && showtransliteration) ? transliterationText : '';
   nextLineElement.innerHTML = gurbani.nextLine && showNextLine ? gurbani.nextLine : '';
 
-  document.querySelector('.debug-info').innerHTML = `${json} ::::::::::::::::::::: <h1> ${translationLang} ${transliterationLang}</h1> `;
+  // Debug info
+  document.querySelector('.debug-info').innerHTML = `${json}`;
 
   window.castReceiverManager.setApplicationState(json);
 }
