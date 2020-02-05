@@ -110,6 +110,13 @@ function displayText(json) {
 
   if (prefs['slide-layout']['display-options'].larivaar === true) {
     document.body.classList.add('larivaar');
+    if (prefs['slide-layout']['display-options']['larivaar-assist']) {
+      document.body.classList.add('larivaar-assist');
+      const assistType = prefs['slide-layout']['larivaar-settings']['assist-type'];
+      if (assistType) {
+        document.body.classList.add(assistType); 
+      }
+    }
     gurmukhiElement.style.display = 'none';
     larivaarElement.style.display = 'block';
   } else {
