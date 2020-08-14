@@ -1,24 +1,23 @@
 body.nirbaan {
-    background-image: url('images/nirbaan.png');
-  
-    .gurbani {
-      color: #ffebbe;
-    }
-  
-    .translation {
-      color: #c2af85;
-    }
-  
-    .teeka {
-      color: #9cabff;
-    }
-  
-    .transliteration {
-      color: #ff723b;
-    }
-  
-    .logo path {
-      fill: #e0e0e0;
-    }
+  background-image: url('images/nirbaan.png');
+
+  .gurbani {
+    color: #ffebbe;
   }
-  
+
+  .translation {
+    color: #c2af85;
+  }
+
+  .teeka {
+    color: #9cabff;
+  }
+
+  .transliteration {
+    color: #ff723b;
+  }
+
+  .logo path {
+    fill: #e0e0e0;
+  }
+}

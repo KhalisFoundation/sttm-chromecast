@@ -76,7 +76,7 @@ function displayText(json) {
   }
 
   if (prefs['slide-layout'] && prefs['slide-layout']['language-settings']) {
-     // we are on a version that uses slide-layout as place for language settings
+    // we are on a version that uses slide-layout as place for language settings
     translationLang = prefs['slide-layout']['language-settings']['translation-language'];
     transliterationLang = prefs['slide-layout']['language-settings']['transliteration-language'];
   }
@@ -114,7 +114,7 @@ function displayText(json) {
       document.body.classList.add('larivaar-assist');
       const assistType = prefs['slide-layout']['larivaar-settings']['assist-type'];
       if (assistType) {
-        document.body.classList.add(assistType); 
+        document.body.classList.add(assistType);
       }
     }
     gurmukhiElement.style.display = 'none';

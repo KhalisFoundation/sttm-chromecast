@@ -69,16 +69,16 @@ body {
 
 // DEBUG INFO WHEN DEBUGGING THE APP
 .debug-info {
-  display: none;
-  width: 100vw;
-  height: 50vh;
-  position: fixed;
+  background: rgba(255, 0, 0, 0.5);
   bottom: 0;
+  color: white;
+  display: none;
+  font-size: 14px;
+  height: 50vh;
   left: 0;
   padding: 5px;
-  background: rgba(255,0,0,0.5);
-  color: white; 
-  font-size: 14px;
+  position: fixed;
+  width: 100vw;
 }
 
 *,

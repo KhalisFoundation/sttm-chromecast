@@ -1,29 +1,28 @@
 body.dhan-guru-nanak {
-    background-color: #000;
-    background-image: url('images/dhanGuruNanak.jpg');
+  background-color: #000;
+  background-image: url('images/dhanGuruNanak.jpg');
 
-    .slide {
-        padding-left: 35%;
-    }
-  
-    .gurbani {
-      color: #fcfefe;
-    }
-  
-    .translation {
-      color: #fde5ab;
-    }
-  
-    .teeka {
-      color: #86a3ba;
-    }
-  
-    .transliteration {
-      color: #f1f5f4;
-    }
-  
-    .logo path {
-      fill: #e0e0e0;
-    }
+  .slide {
+    padding-left: 35%;
   }
-  
+
+  .gurbani {
+    color: #fcfefe;
+  }
+
+  .translation {
+    color: #fde5ab;
+  }
+
+  .teeka {
+    color: #86a3ba;
+  }
+
+  .transliteration {
+    color: #f1f5f4;
+  }
+
+  .logo path {
+    fill: #e0e0e0;
+  }
+}
