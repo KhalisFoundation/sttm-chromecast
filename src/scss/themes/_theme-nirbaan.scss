@@ -1,0 +1,14 @@
+$themeNirbaan: (
+  type: 'dark',
+  background-color: #07ccf3,
+  gurbani: #ffebbe,
+  translation: #c2af85,
+  teeka: #9cabff,
+  transliteration: #ff723b,
+  visraam: #ff7741,
+  yamki: #ffc741,
+);
+
+body.nirbaan {
+  @include generateTheme($themeNirbaan...);
+}
