@@ -110,118 +110,8 @@ body {
 #viewer {
   margin: 0;
   overflow: auto;
-  padding: 30px;
+  // padding: 30px;
   text-align: center;
-}
-
-.gurmukhi {
-  display: inline;
-  font-family: "gurbaniakharthick";
-}
-
-.left-align #viewer {
-  text-align: left;
-}
-
-.deck {
-  height: calc(100% - 100px);
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  transition: opacity 400ms ease-out;
-  width: calc(100% - 30px * 2);
-}
-
-.deck.active {
-  opacity: 1;
-}
-
-.slide {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  height: 100%;
-  justify-content: space-between;
-  opacity: 0;
-  position: absolute;
-  width: 100%;
-
-  &.announcement-slide {
-    align-items: center;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-
-    #translation,
-    #transliteration,
-    #teeka,
-    #next-line {
-      display: none;
-    }
-  }
-
-  &.active {
-    opacity: 1;
-  }
-}
-
-h1,
-h2 {
-  margin: 0;
-  transition: all 600ms cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.gurbani {
-  font-weight: normal;
-  line-height: 1.5;
-}
-
-.gurbani .gurmukhi span {
-  white-space: nowrap;
-}
-
-.gurbani .gurmukhi span i {
-  font-size: 0;
-  margin-left: 1rem;
-}
-
-.translation,
-.transliteration {
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.transliteration {
-  text-transform: lowercase;
-}
-
-.teeka {
-  font-family: "gurbaniakhar";
-  line-height: 1.5;
-  margin-top: 0.25em;
-}
-
-.translation,
-.transliteration,
-.teeka,
-.next-line {
-  display: none;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-}
-
-.display-translation .translation,
-.display-transliteration .transliteration,
-.display-teeka .teeka,
-.display-next-line .next-line {
-  display: block;
-  height: auto;
-  opacity: 1;
-}
-
-.display-next-line .next-line {
-  opacity: 0.5;
 }
 
 /* ***** FONT SIZES ***** */
@@ -251,3 +141,4 @@ h2 {
 }
 
 @import './themes/themes';
+@import './viewer.scss';
