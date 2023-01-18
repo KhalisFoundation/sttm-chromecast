@@ -33,8 +33,10 @@ window.onload = () => {
   };
 
   // create a CastMessageBus to handle messages for a custom namespace
-  window.messageBus =
-    window.castReceiverManager.getCastMessageBus('urn:x-cast:com.khalis.cast.sttm.gurbani', cast.receiver.CastMessageBus.MessageType.JSON);
+  window.messageBus = window.castReceiverManager.getCastMessageBus(
+    'urn:x-cast:com.khalis.cast.sttm.gurbani',
+    cast.receiver.CastMessageBus.MessageType.JSON,
+  );
 
   // handler for the CastMessageBus message event
   window.messageBus.onMessage = (event) => {
