@@ -9,6 +9,6 @@ $themeDhanGuruNanak: (
   yamki: #ffde00,
 );
 
-body.dhan-guru-nanak {
+.theme-dhan-guru-nanak {
   @include generateTheme($themeDhanGuruNanak...);
 }
