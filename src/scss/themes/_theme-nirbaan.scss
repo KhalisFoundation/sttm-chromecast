@@ -9,6 +9,6 @@ $themeNirbaan: (
   yamki: #ffc741,
 );
 
-body.nirbaan {
+.theme-nirbaan {
   @include generateTheme($themeNirbaan...);
 }

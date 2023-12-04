@@ -9,6 +9,6 @@ $themeBaagiBlue: (
   yamki: #fff229,
 );
 
-body.baagi-blue {
+.theme-baagi-blue {
   @include generateTheme($themeBaagiBlue...);
 }

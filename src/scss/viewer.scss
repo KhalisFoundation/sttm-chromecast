@@ -1,0 +1,69 @@
+$gurbanithick: 'gurbaniakharthick';
+$gurbani: 'gurbaniakhar';
+
+.shabad-deck {
+  height: 100vh;
+  padding: 15px 0;
+}
+
+.akhandpatt-view {
+  .verse-slide {
+    height: auto !important;
+    padding: 0 10px !important;
+  }
+}
+
+.verse-slide {
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.slide-gurbani {
+  font-family: $gurbanithick;
+  font-size: 45px;
+}
+
+.slide-announcement {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+
+  .gurmukhi-announcement-slide {
+    font-family: $gurbanithick;
+    line-height: 1.15em;
+  }
+}
+
+.padchhed span {
+  margin: 0 5px;
+}
+
+.slide-translation {
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.slide-teeka {
+  font-family: $gurbani;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.slide-transliteration {
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.slide-next-line {
+  opacity: 0.5;
+  margin: 10px 0;
+}
+
+.slide-left-align {
+  text-align: left;
+}

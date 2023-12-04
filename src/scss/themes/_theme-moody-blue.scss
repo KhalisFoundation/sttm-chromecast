@@ -9,6 +9,6 @@ $themeMoodyBlue: (
   yamki: #ffde00,
 );
 
-body.moody-blue {
+.theme-moody-blue {
   @include generateTheme($themeMoodyBlue...);
 }
