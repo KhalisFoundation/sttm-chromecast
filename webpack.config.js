@@ -55,13 +55,6 @@ module.exports = {
           filename: './images/[name][ext]',
         },
       },
-      {
-        test: /\.mp4$/,
-        type: 'asset/resource',
-        generator: {
-          filename: './assets/videos/[name][ext]',
-        },
-      },
     ],
   },
   output: {
