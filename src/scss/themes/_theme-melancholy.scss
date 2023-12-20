@@ -1,0 +1,14 @@
+$themeMelancholy: (
+  type: 'dark',
+  background-color: #38987b,
+  gurbani: #fcfefe,
+  translation: #fde5ab,
+  teeka: #86a3ba,
+  transliteration: #f1f5f4,
+  visraam: #ffa5a5,
+  yamki: #ffde00,
+);
+
+.theme-melancholy {
+  @include generateTheme($themeMelancholy...);
+}

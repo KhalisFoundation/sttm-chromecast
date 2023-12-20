@@ -1,0 +1,25 @@
+.theme-clouds {
+  background-color: #fff;
+  background-image: url('images/clouds-video.png');
+
+  .slide-gurbani {
+    color: #0e2654;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.7);
+  }
+
+  .slide-translation {
+    color: #003a8c;
+  }
+
+  .slide-teeka {
+    color: #033780;
+  }
+
+  .slide-transliteration {
+    color: #80878a;
+  }
+
+  .logo path {
+    fill: #e0e0e0;
+  }
+}
